@@ -1,0 +1,439 @@
+#! C:/Program Files/Nuke16.0v1/nuke-16.0.1.dll -nx
+version 16.0 v1
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="2559" h="1370" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1896" stretch="1"/>
+            <splitter orientation="2">
+                <split size="779"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="548"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="615"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+                <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+                <page id="Scenegraph.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name D:/git/gamescopeshaders.js/src/looks.nk
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut linear
+ monitorOutLUT None
+ int8Lut linear
+ int16Lut linear
+ logLut linear
+ floatLut linear
+}
+Read {
+ inputs 0
+ file_type png
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/chart.0007x.png
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read13
+ xpos 324
+ ypos -419
+}
+Read {
+ inputs 0
+ file_type jpeg
+ file D:/git/gamescope/looks/deck_colorsettings_default_bg.jpg
+ format "2880 1200 0 0 2880 1200 1 "
+ origset true
+ raw true
+ name Read1
+ xpos 201
+ ypos -422
+}
+set N1dd4c300 [stack 0]
+Saturation {
+ saturation 0
+ name Saturation1
+ xpos 201
+ ypos -210
+ disable true
+}
+push $N1dd4c300
+Dot {
+ name Dot2
+ xpos 388
+ ypos -168
+}
+Vectorfield {
+ vfield_file D:/git/gamescope/looks/invert11_g22.cube
+ version 4
+ file_type cube
+ name Vectorfield1
+ xpos 321
+ ypos -4
+}
+CMSTestPattern {
+ inputs 0
+ cube_size 5
+ name CMSTestPattern_1
+ xpos 222
+ ypos -167
+}
+Invert {
+ name Invert1
+ xpos 259
+ ypos -82
+}
+set N1dd4c800 [stack 0]
+CMSTestPattern {
+ inputs 0
+ cube_size 11
+ name CMSTestPattern_11
+ xpos 423
+ ypos -173
+}
+Colorspace {
+ colorspace_in sRGB
+ colorspace_out CIE-LCH
+ name Colorspace8
+ xpos 413
+ ypos -80
+}
+ColorLookup {
+ lut {master {}
+   red {curve C 1.00074625 s-1.399999976 x0.1804535389 0.844776094 s-0.6999999881 x0.5035637021 0.5629352927 x0.7387688756 0.3139303923 s-1.149999976 x1 -0.0007462501526 s-0.75}
+   green {}
+   blue {}
+   alpha {}}
+ name ColorLookup2
+ xpos 413
+ ypos -54
+}
+Colorspace {
+ colorspace_in CIE-LCH
+ colorspace_out sRGB
+ name Colorspace9
+ xpos 413
+ ypos -28
+}
+Clamp {
+ name Clamp1
+ xpos 413
+ ypos -2
+}
+set N21329900 [stack 0]
+Merge2 {
+ inputs 2
+ operation difference
+ name Merge1
+ xpos 259
+ ypos 116
+}
+Grade {
+ inputs 0
+ name Grade1
+ xpos 750
+ ypos -11
+}
+Read {
+ inputs 0
+ file_type png
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/chart.0007d.png
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read18
+ xpos 439
+ ypos -495
+}
+Read {
+ inputs 0
+ file_type jpeg
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/sandrock.jpg
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read12
+ xpos 629
+ ypos -489
+}
+Read {
+ inputs 0
+ file_type png
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/zbright_atlas.png
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read7
+ xpos 792
+ ypos -483
+}
+Read {
+ inputs 0
+ file_type jpeg
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/cyber3.jpg
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read5
+ xpos 931
+ ypos -481
+}
+Read {
+ inputs 0
+ file_type jpeg
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/hades2.jpg
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read10
+ xpos 752
+ ypos -370
+}
+Read {
+ inputs 0
+ file_type jpeg
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/ultrakill2.jpg
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read6
+ xpos 851
+ ypos -367
+}
+Read {
+ inputs 0
+ file_type png
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/zbright_clouds.png
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read8
+ xpos 870
+ ypos -270
+}
+Read {
+ inputs 0
+ file_type png
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/chart.0007b.png
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read16
+ xpos 1195
+ ypos -462
+}
+Read {
+ inputs 0
+ file_type png
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/chart.0001b.png
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read14
+ xpos 1072
+ ypos -457
+}
+Read {
+ inputs 0
+ file_type png
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/chart.0007a.png
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read15
+ xpos 1042
+ ypos -338
+}
+Read {
+ inputs 0
+ file_type png
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/chart.0007c.png
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read17
+ xpos 1328
+ ypos -438
+}
+Read {
+ inputs 0
+ file_type jpeg
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/nierauto1.jpg
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read11
+ xpos 1236
+ ypos -305
+}
+Read {
+ inputs 0
+ file_type png
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/zbright_sun.png
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read9
+ xpos 1088
+ ypos -227
+}
+Read {
+ inputs 0
+ file_type png
+ file D:/git/gamescope/looks/gamescope-20250616124407.png
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ raw true
+ name Read3
+ xpos -17
+ ypos -451
+}
+Invert {
+ inputs 0
+ name Invert4
+ xpos -312
+ ypos -95
+}
+Read {
+ inputs 0
+ file_type png
+ file D:/git/gamescope/looks/gamescope-20250616124339.png
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ raw true
+ name Read2
+ xpos -146
+ ypos -453
+}
+Invert {
+ inputs 0
+ name Invert3
+ xpos -351
+ ypos -139
+}
+StickyNote {
+ inputs 0
+ name StickyNote3
+ label "invert v2"
+ xpos 468
+ ypos -113
+}
+push $N21329900
+GenerateLUT {
+ file D:/git/gamescopeshaders.js/Looks/invert11_g22.cube
+ file_type .cube
+ name GenerateLUT1
+ xpos 497
+ ypos 67
+}
+StickyNote {
+ inputs 0
+ name StickyNote1
+ label "Grayscale\nInvert\nSimple Invert\nHigh Contrast\n"
+ xpos 766
+ ypos -127
+}
+push $N1dd4c800
+GenerateLUT {
+ file D:/git/gamescopeshaders.js/Looks/simpleinvert5_g22.cube
+ file_type .cube
+ style1d linear
+ name GenerateLUT2
+ xpos 197
+ ypos 18
+}
+CMSTestPattern {
+ inputs 0
+ cube_size 11
+ name CMSTestPattern_2
+ xpos -48
+ ypos -85
+}
+Colorspace {
+ colorspace_in sRGB
+ colorspace_out HSL
+ name Colorspace7
+ xpos -48
+ ypos -13
+}
+ColorLookup {
+ lut {master {}
+   red {}
+   green {curve C 0 x0.5035637021 0.729850769 x1 1}
+   blue {curve C -0.004231452942 x0.3752699196 0.2011113763 s1.600000024 x0.6579912901 0.8015134335 x1 1 s0.05000000075}
+   alpha {}}
+ mix 0.65
+ name ColorLookup1
+ xpos -48
+ ypos 13
+}
+Colorspace {
+ colorspace_in HSL
+ colorspace_out sRGB
+ name Colorspace2
+ xpos -48
+ ypos 39
+}
+Clamp {
+ name Clamp2
+ xpos -48
+ ypos 65
+}
+GenerateLUT {
+ file D:/git/gamescopeshaders.js/Looks/highcontrast11_g22.cube
+ file_type .cube
+ style1d linear
+ name GenerateLUT3
+ xpos -48
+ ypos 103
+}
+push $N21329900
+Read {
+ inputs 0
+ file_type jpeg
+ file C:/p4/vr/user/jeremys/colortest/public/internal/sdr/test_images/cyber1.jpg
+ format "1280 800 0 0 1280 800 1 "
+ origset true
+ name Read4
+ xpos 49
+ ypos -293
+}
+CMSTestPattern {
+ inputs 0
+ cube_size 5
+ name CMSTestPattern_3
+ xpos 96
+ ypos -162
+}
+set Nff954800 [stack 0]
+Viewer {
+ inputs 3
+ frame_range 1-100
+ viewerProcess None
+ monitorOutNDISenderName "Nuke - looks - Viewer1"
+ monitorOutOutputTransform rec709
+ name Viewer1
+ xpos 402
+ ypos 233
+}
+push $Nff954800
+Saturation {
+ saturation 0
+ name Saturation2
+ xpos 96
+ ypos -90
+}
+GenerateLUT {
+ file D:/git/gamescopeshaders.js/Looks/grayscale5_g22.cube
+ file_type .cube
+ style1d linear
+ name GenerateLUT4
+ selected true
+ xpos 96
+ ypos -64
+}
